@@ -13,9 +13,12 @@ router.get('/', async (req, res) => {
     //tester to see pulling data; change to res.render to send to handlebars
     // res.status(200).json(articles);
     console.log(articles)
-    res.render('homepage', articles)
+    return res.render('homepage', {
+      articles,
+      loggedIn: req.session.loggedIn
+    })
   } catch (err) {
-    res.status(500).json(err)
+    return res.status(500).json(err)
   }
 })
 
@@ -37,11 +40,20 @@ router.get("/articles/:id", async (req, res) => {
 
         }]
     })
-    res.status(200).json(singleArticleData)
     //change to res.render send to correct handlebar
+    console.log(singleArticleData);
+    return res.status(200).json(singleArticleData)
+
   } catch (err) {
-    res.status(500).json(err)
+    return res.status(500).json(err)
   }
+});
+
+router.get('/login', async (req, res) => {
+  if (req.session.loggedIn) {
+    return res.redirect('/');
+  }
+  res.render('login', { layout: 'login' })
 })
 
 module.exports = router;
