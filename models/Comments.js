@@ -1,11 +1,4 @@
-/*
-comments table
-id pk,
-article_id fk from articles table,
-comment,
-created on
-user_id of who created comment: fk from user table
-*/
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -32,10 +25,6 @@ Comments.init(
       validate: {
         notNull: true
       }
-    },
-    comment_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
     },
     comment_user_id: {
       type: DataTypes.INTEGER,

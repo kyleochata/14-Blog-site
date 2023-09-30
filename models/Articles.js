@@ -26,13 +26,6 @@ Articles.init(
         notNull: true
       }
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      validate: {
-        notNull: true
-      }
-    },
     created_by_user_id: {
       type: DataTypes.INTEGER,
       references: {

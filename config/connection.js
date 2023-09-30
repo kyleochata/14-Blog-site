@@ -1,5 +1,5 @@
 //establish connection to Sequelize to connect to mySQL server
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
