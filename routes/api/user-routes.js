@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.user_id = newUserData.id;
+      req.session.user = newUserData.id;
       req.session.username = newUserData.username
       req.session.loggedIn = true;
 
