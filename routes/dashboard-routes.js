@@ -31,7 +31,6 @@ router.get('/', authorizer, async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-
 });
 // router.get('/new', (req, res) => {
 //   res.render(add relative path to the correct handlebar for making a new post, {

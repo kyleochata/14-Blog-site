@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 })
 
 //GET single post 
-router.get("/articles/:id", async (req, res) => {
+router.get("/articles/:id", authorizer, async (req, res) => {
   try {
     const singleArticleData = await Articles.findByPk(req.params.id, {
       include: [
@@ -39,8 +39,11 @@ router.get("/articles/:id", async (req, res) => {
         }]
     })
     //change to res.render send to correct handlebar
-    console.log(singleArticleData);
-    return res.status(200).json(singleArticleData)
+
+    const post = singleArticleData.dataValues;
+    console.log(post)
+    // return res.status(200).json(post)
+    res.render('articles-page', { post })
 
   } catch (err) {
     return res.status(500).json(err)
