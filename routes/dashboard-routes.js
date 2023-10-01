@@ -32,11 +32,11 @@ router.get('/', authorizer, async (req, res) => {
     res.status(500).json(err)
   }
 });
-// router.get('/new', (req, res) => {
-//   res.render(add relative path to the correct handlebar for making a new post, {
-//   layout: 'dashboard'
-// })
-// })
+router.get('/new', (req, res) => {
+  res.render('new-article', {
+    layout: 'dashboard'
+  })
+})
 
 // router.get('/edit/:id', async (req, res) => {
 //   try {
