@@ -24,12 +24,12 @@
         {{#each post.comments}}
           <div>
             <p>
-              {{comments.dataValues.comment}}
+              {{this.dataValues.comment}}
             </p>
             <p>
               &mdash;
-              {{comments.username}},
-              {{format_date comments.dataValues.createdAt}}
+              {{this.user.dataValues.username}},
+              {{format_date this.dataValues.createdAt}}
             </p>
           </div>
         {{/each}}

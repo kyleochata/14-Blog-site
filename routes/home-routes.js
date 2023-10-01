@@ -42,13 +42,13 @@ router.get("/articles/:id", authorizer, async (req, res) => {
 
     const post = singleArticleData.dataValues;
     console.log(post)
-    // return res.status(200).json(post)
     res.render('articles-page', { post })
 
   } catch (err) {
     return res.status(500).json(err)
   }
 });
+// return res.status(200).json(post)
 
 router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {

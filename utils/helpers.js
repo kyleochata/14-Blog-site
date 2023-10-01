@@ -1,6 +1,5 @@
 module.exports = {
 
-  // adds five years to the date, and formats it as M/D/YYYY
   format_date: (date) => {
     //month is index 0-11. must add 1 to get correct month
     let month = new Date(date).getMonth() + 1;
