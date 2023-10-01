@@ -19,8 +19,7 @@ const sess = {
   saveUninitialized: true,
   cookie: {
     maxAge: 60 * 1000,
-    httpOnly: true,
-    secure: false,
+
   }
 };
 

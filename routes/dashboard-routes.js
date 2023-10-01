@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const { User, Articles, Comments } = require('../models')
-
+const authorizer = require('../utils/authorized')
 //when in dashboard, want to see the articles written by the user
-router.get('/', async (req, res) => {
+router.get('/', authorizer, async (req, res) => {
   //tester to get data. will need to change the route to '/', fxn to check if user is logged into a session, where changed to req.session. user's id
   try {
     const userDashboardData = await Articles.findAll({
       where: {
-        created_by_user_id: req.params.id
+        created_by_user_id: req.session.id
       },
       include: [
         {
@@ -29,7 +29,8 @@ router.get('/', async (req, res) => {
     console.log(userDashboard)
     return res.render('dashboard-page', {
       userDashboard,
-      layout: 'dashboard'
+      layout: 'dashboard',
+      loggedIn: true
     })
   } catch (err) {
     res.status(500).json(err)
