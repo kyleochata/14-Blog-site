@@ -7,7 +7,7 @@ router.get('/', authorizer, async (req, res) => {
   try {
     const userDashboardData = await Articles.findAll({
       where: {
-        created_by_user_id: req.session.id
+        created_by_user_id: req.session.user
       },
       include: [
         {
@@ -24,13 +24,13 @@ router.get('/', authorizer, async (req, res) => {
       ]
     })
     // res.status(200).json(userDashboardData)
+    console.log(userDashboardData)
     //serialization
     const userDashboard = userDashboardData.map(articles => articles.get({ plain: true }))
     console.log(userDashboard)
     return res.render('dashboard-page', {
       userDashboard,
       layout: 'dashboard',
-      loggedIn: true
     })
   } catch (err) {
     res.status(500).json(err)

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const authorizer = require('../utils/authorized')
 const { User, Articles, Comments } = require('../models');
 
 //GET all article names and date created
@@ -14,8 +14,7 @@ router.get('/', async (req, res) => {
     // res.status(200).json(articles);
     console.log(articles)
     return res.render('homepage', {
-      articles,
-      loggedIn: req.session.loggedIn
+      articles
     })
   } catch (err) {
     return res.status(500).json(err)
@@ -37,7 +36,6 @@ router.get("/articles/:id", async (req, res) => {
             model: User,
             attributes: ['username']
           }],
-
         }]
     })
     //change to res.render send to correct handlebar
