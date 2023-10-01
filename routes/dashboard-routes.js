@@ -3,7 +3,6 @@ const { User, Articles, Comments } = require('../models')
 const authorizer = require('../utils/authorized')
 //when in dashboard, want to see the articles written by the user
 router.get('/', authorizer, async (req, res) => {
-  //tester to get data. will need to change the route to '/', fxn to check if user is logged into a session, where changed to req.session. user's id
   try {
     const userDashboardData = await Articles.findAll({
       where: {
@@ -23,12 +22,9 @@ router.get('/', authorizer, async (req, res) => {
         }
       ]
     })
-    // res.status(200).json(userDashboardData)
-    console.log(userDashboardData)
     //serialization
     const userDashboard = userDashboardData.map(articles => articles.get({ plain: true }))
-    console.log(userDashboard)
-    return res.render('dashboard-page', {
+    res.render('dashboard-page', {
       userDashboard,
       layout: 'dashboard',
     })
