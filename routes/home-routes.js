@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     //serialization Sequelize obj to normal obj
     const articles = articlesData.map(article => article.get({ plain: true }));
     //tester to see pulling data; change to res.render to send to handlebars
-    // res.status(200).json(articles);
+
     console.log(articles)
     return res.render('homepage', {
       articles

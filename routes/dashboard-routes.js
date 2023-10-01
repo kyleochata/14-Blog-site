@@ -32,23 +32,36 @@ router.get('/', authorizer, async (req, res) => {
     res.status(500).json(err)
   }
 });
+
 router.get('/new', (req, res) => {
   res.render('new-article', {
     layout: 'dashboard'
   })
 })
 
-// router.get('/edit/:id', async (req, res) => {
-//   try {
-//     const editArticleData = await Articles.findByPk(req.params.id);
-//     if (!editArticleData) {
-//       res.status(404).json(`Sorry no article with that id found! Please try again`)
-//     }
-//     res.render('edit-article', {
-//       layout: '',
-//     })
-//   } catch (err) {
-//     res.status(500).json(err)
-//   }
-// })
+router.get('/edit/:id', authorizer, async (req, res) => {
+  try {
+    const editArticleData = await Articles.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comments,
+          include: [{
+            model: User,
+            attributes: ['username']
+          }],
+        }]
+    })
+    console.log(editArticleData)
+    if (!editArticleData) {
+      res.status(404).json(`Sorry no article with that id found! Please try again`)
+    }
+    // const editArticle = editArticleData.map(article => article.get({ plain: true }));
+    res.render('edit-article', {
+      editArticle,
+      layout: 'dashboard',
+    })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 module.exports = router

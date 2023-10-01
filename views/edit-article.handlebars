@@ -1,0 +1,27 @@
+<section>
+  <form>
+    <div>
+      <label for='article-title'>Title</label>
+      <input type='text' id='article-title-input' value='{{editArticle.title}}' />
+    </div>
+    <div>
+      <label for="article-content">Article Content</label>
+      <input type="text" id="article-content-input" value="{{editArticle.content}}"/>
+    </div>
+  </form>
+</section>
+{{#if editArticle.comments}}
+<section>
+  {{#each articles.comments}}
+    <div>
+      <p>
+        {{this.dataValues.comment}}
+      </p>
+      <p>
+        &mdash;
+        {{this.user.dataValues.username}},
+        {{format_date this.dataValues.createdAt}}
+      </p>
+    </div>
+</section>
+{{/if}}
