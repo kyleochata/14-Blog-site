@@ -37,19 +37,23 @@
     </section>
   {{/if}}
 
-  <form id='new-comment-form' class='card'>
-    <div class='card-header'>
+  <form>
+    <div>
       <h3>Add New Comment</h3>
     </div>
 
     <div class='card-body'>
-      <input type='hidden' name='post-id' value='{{post.id}}' />
-
       <label class='form-label' for='comment-body'>Comment</label>
 
-      <textarea name='comment-body' class='form-input'></textarea>
+      <textarea
+        name='comment-body'
+        class='form-input'
+        id='comment-content'
+      ></textarea>
 
-      <button type='submit' class='btn'>Submit</button>
+      <button type='submit' id='comment-submit-btn'>Submit</button>
     </div>
   </form>
 </div>
+
+<script src='/scripts/comment-save.js'></script>

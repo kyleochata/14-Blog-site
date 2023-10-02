@@ -27,6 +27,7 @@ router.get('/', authorizer, async (req, res) => {
     res.render('dashboard-page', {
       userDashboard,
       layout: 'dashboard',
+      loggedIn: req.session.loggedIn
     })
   } catch (err) {
     res.status(500).json(err)
@@ -55,10 +56,11 @@ router.get('/edit/:id', authorizer, async (req, res) => {
     if (!editArticleData) {
       res.status(404).json(`Sorry no article with that id found! Please try again`)
     }
-    // const editArticle = editArticleData.map(article => article.get({ plain: true }));
+    const editArticle = editArticleData.dataValues
     res.render('edit-article', {
       editArticle,
       layout: 'dashboard',
+      loggedIn: req.session.loggedIn
     })
   } catch (err) {
     res.status(500).json(err)

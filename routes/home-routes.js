@@ -14,7 +14,8 @@ router.get('/', async (req, res) => {
 
     console.log(articles)
     return res.render('homepage', {
-      articles
+      articles,
+      loggedIn: req.session.loggedIn
     })
   } catch (err) {
     return res.status(500).json(err)
@@ -42,7 +43,10 @@ router.get("/articles/:id", authorizer, async (req, res) => {
 
     const post = singleArticleData.dataValues;
     console.log(post)
-    res.render('articles-page', { post })
+    res.render('articles-page', {
+      post,
+      loggedIn: req.session.loggedIn
+    })
 
   } catch (err) {
     return res.status(500).json(err)

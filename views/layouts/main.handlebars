@@ -13,8 +13,16 @@
         <ul>
           <li>
             <a href='/'>Home</a>
+          </li>
+          <li>
             <a href='/dashboard/'>Dashboard</a>
-            <a href='/login'>Login</a>
+          </li>
+          <li>
+            {{#if loggedIn}}
+              <button id='logout-btn'>Logout</button>
+            {{else}}
+              <a href='/login'>Login</a>
+            {{/if}}
           </li>
         </ul>
       </div>
@@ -27,4 +35,7 @@
       <p>2023, Enormous_Elephant, Inc</p>
     </footer>
   </body>
+  {{#if loggedIn}}
+    <script src='/scripts/logout.js'></script>
+  {{/if}}
 </html>
