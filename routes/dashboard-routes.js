@@ -26,7 +26,6 @@ router.get('/', authorizer, async (req, res) => {
     const userDashboard = userDashboardData.map(articles => articles.get({ plain: true }))
     res.render('dashboard-page', {
       userDashboard,
-      layout: 'dashboard',
       loggedIn: req.session.loggedIn
     })
   } catch (err) {
@@ -34,9 +33,8 @@ router.get('/', authorizer, async (req, res) => {
   }
 });
 
-router.get('/new', (req, res) => {
+router.get('/new', authorizer, (req, res) => {
   res.render('new-article', {
-    layout: 'dashboard'
   })
 })
 
@@ -59,7 +57,6 @@ router.get('/edit/:id', authorizer, async (req, res) => {
     const editArticle = editArticleData.dataValues
     res.render('edit-article', {
       editArticle,
-      layout: 'dashboard',
       loggedIn: req.session.loggedIn
     })
   } catch (err) {

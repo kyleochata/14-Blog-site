@@ -1,36 +1,38 @@
+<section class='dashboard-container '>
 <div>
-  <a href='/dashboard/new'>
-    <button id='dashboard-btn'>New Post</button>
-  </a>
+  <a href='/dashboard/new' class="dashboard-a">Create new Echo</a>
 </div>
-<section>
-  <form>
-    <div>
-      <label for='article-title'>Title</label>
-      <input
+<section class="edit-container">
+  <form class="edit-form">
+    <div class="input-areas">
+      <div>
+      <label for='article-title-input'>Title</label>
+      </div>
+      <textarea
         type='text'
         id='article-title-input'
-        value='{{editArticle.title}}'
-      />
+      >{{editArticle.title}}</textarea>
     </div>
     <div>
-      <label for='article-content'>Article Content</label>
-      <input
+      <div>
+      <label for='article-content-input'>Article Content</label>
+      </div>
+      <textarea
         type='text'
         id='article-content-input'
-        value='{{editArticle.content}}'
-      />
+      > {{editArticle.content}}</textarea>
     </div>
   </form>
+  <div>
+    <div>
+      <button id="save-edit-btn" >Save Changes</button>
+    </div>
+    <div>
+      <button id="delete-article-btn">Delete Article</button>
+    </div>
+  </div>
 </section>
-<div>
-  <button id="save-edit-btn" >Save Changes</button>
-</div>
-<div>
 
-  <button id="delete-article-btn">Delete Article</button>
-
-</div>
 {{#if editArticle.comments}}
   <section>
     {{#each articles.comments}}
@@ -38,5 +40,7 @@
     {{/each}}
   </section>
 {{/if}}
+</section>
+
 
 <script src='/scripts/save-delete-edit.js'></script>

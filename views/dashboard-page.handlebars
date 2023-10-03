@@ -1,8 +1,11 @@
-<div>
-  <a href='/dashboard/new'>
-    <button id='dashboard-btn'>New Post</button>
-  </a>
-</div>
-{{#each userDashboard}}
-  {{> dashboard-articles}}
-{{/each}}
+<section class="dashboard-container">
+  <div>
+    <a href='/dashboard/new'class='dashboard-a'> Click here to create a new Echo</a>
+  </div>
+  <div>
+    <p class="dashboard-content">Click on one of your past echoes to edit or delete</p>
+  </div>
+  {{#each userDashboard}}
+    {{> dashboard-articles}}
+  {{/each}}
+</section>

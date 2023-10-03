@@ -1,9 +1,16 @@
 
-<section class='main-left'>
-  {{! <img/> }}
+<section class='main-left col-md-8 col-12'>
+  <div class="hero-image"></div>
+  <div class="section-overlay"></div>
+  <div class="image-content row">
+    <span class="name col" data-value="INFINITE ECHOES">INFINITE ECHOES</span>
+  </div>
 </section>
-<section class="main-right">
+<section class="main-right col-md-4 col-12">
+  
 {{#each articles}}
 {{> article-details}}
 {{/each}}
+
 </section>
+  <script src='/scripts/text-animation.js'></script>

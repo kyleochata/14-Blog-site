@@ -1,6 +1,7 @@
-<div>
+<div class='article-card dashboard-card'>
   <a href='/dashboard/edit/{{this.id}}'>
-    <header>{{this.title}}</header>
-    <p>{{format_date this.createdAt}}</p>
+    <h3>{{this.title}}</h3>
+    <p>Created On:{{format_date this.createdAt}}</p>
+    <p class='dashboard-content'>{{this.content}}</p>
   </a>
 </div>
