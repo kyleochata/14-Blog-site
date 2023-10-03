@@ -58,7 +58,7 @@ router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
     return res.redirect('/');
   }
-  res.render('login', { layout: 'login' })
+  res.render('login')
 })
 
 module.exports = router;

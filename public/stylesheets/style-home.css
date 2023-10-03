@@ -20,7 +20,14 @@ header {
   padding: 10px 10px;
   border-bottom: solid var(--secondary);
 }
+
 h2 {
+  font-size: 2.5rem;
+}
+
+h2,
+h3,
+h4 {
   text-shadow: 0px 0px 0.5rem white;
 }
 
@@ -38,7 +45,8 @@ ul {
 a,
 #logout-btn,
 #save-edit-btn,
-#delete-article-btn {
+#delete-article-btn,
+#comment-submit-btn {
   text-decoration: none;
   color: var(--secondary);
   text-shadow: 0px 0px 0.5rem white;
@@ -166,7 +174,8 @@ a,
 }
 
 .main-right,
-.dashboard-container {
+.dashboard-container,
+.post {
   contain: strict;
   overflow-y: auto;
 }
@@ -184,14 +193,16 @@ a,
   text-align: start;
 }
 
-.article-card > a > h3 {
+.article-card > a > h3,
+.title {
   font-size: 4rem;
   color: var(--accent-color);
   text-shadow: 0px 0px 0.5rem var(--accent-color);
   text-align: start;
 }
 
-.article-card > p {
+.article-card > p,
+.creator-details {
   text-shadow: 0px 0px 0.5rem var(--accent-color);
   font-size: 2rem;
 }
@@ -211,17 +222,25 @@ a,
   position: absolute;
   top: 35%;
   left: 12%;
+  z-index: 4;
 }
 
-.dashboard-card {
+.dashboard-card,
+.comment-card {
   border: dashed var(--accent-color);
 }
-.dashboard-content {
+.dashboard-content,
+.card-body,
+.article-body {
   font-size: 2rem;
 }
 .dashboard-a {
   font-size: 2.5rem;
   text-shadow: 0px 0px 0.75rem var(--secondary);
+  transition: text-shadow 0.25s;
+}
+.dashboard-a:hover {
+  text-shadow: 0px 0px 1rem var(--action-color);
 }
 
 .dashboard-content,
@@ -229,7 +248,8 @@ a,
   padding-left: 20px;
 }
 
-.edit-form {
+.edit-form,
+.login-form {
   font-size: 1.5rem;
   border: dashed var(--accent-color);
   height: 75%;
@@ -254,7 +274,8 @@ textarea {
   border: solid var(--accent-color);
 }
 
-#article-title-input {
+#article-title-input,
+#comment-content {
   height: 15%;
   width: 80%;
 }
@@ -264,7 +285,8 @@ textarea {
   width: 80%;
 }
 #save-edit-btn,
-#delete-article-btn {
+#delete-article-btn,
+#comment-submit-btn {
   border: none;
   background-color: var(--primary);
   font-size: 1.5rem;
@@ -272,9 +294,22 @@ textarea {
 }
 
 #save-edit-btn:hover,
-#delete-article-btn:hover {
+#delete-article-btn:hover,
+#comment-submit-btn:hover {
   color: var(--action-color);
   font-weight: bold;
+}
+
+.comment-container,
+.comment-form {
+  padding-left: 20px;
+}
+
+.comment-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 733px) {

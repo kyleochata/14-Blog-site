@@ -1,57 +1,47 @@
 <div class='post'>
-  <article class='card'>
+  <article class='article-card'>
     <div class='card-header flex-row justify-space-between'>
-      <h2>{{post.title}}</h2>
-      <div>
+      <h2 class="title">{{post.title}}</h2>
+      <div class="creator-details">
         Posted by
         {{post.user.dataValues.username}}
         on
         {{format_date post.createdAt}}
       </div>
     </div>
-    <div class='card-body'>
+    <div class='article-body'>
       {{post.content}}
     </div>
   </article>
 
   {{#if post.comments}}
-    <section class='card'>
+    <section class='comment-container'>
       <div class='card-header'>
-        <h3>Comments</h3>
+        <h3>Responding Echoes</h3>
       </div>
 
-      <div class='card-body'>
+      <div class='comment-body'>
         {{#each post.comments}}
-          <div>
-            <p>
-              {{this.dataValues.comment}}
-            </p>
-            <p>
-              &mdash;
-              {{this.user.dataValues.username}},
-              {{format_date this.dataValues.createdAt}}
-            </p>
-          </div>
+          {{> comments}}
         {{/each}}
       </div>
     </section>
   {{/if}}
 
-  <form>
+  <form class="comment-form">
     <div>
-      <h3>Add New Comment</h3>
+      <h4>New Responding Echo</h4>
     </div>
 
     <div class='card-body'>
-      <label class='form-label' for='comment-body'>Comment</label>
-
       <textarea
         name='comment-body'
         class='form-input'
         id='comment-content'
       ></textarea>
-
-      <button type='submit' id='comment-submit-btn'>Submit</button>
+      <div>
+        <button type='submit' id='comment-submit-btn'>Submit</button>
+      </div>
     </div>
   </form>
 </div>
