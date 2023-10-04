@@ -57,7 +57,6 @@ router.get('/edit/:id', authorizer, async (req, res) => {
       res.status(404).json(`Sorry no article with that id found! Please try again`)
     }
     const editArticle = editArticleData.get({ plain: true });
-    console.log(editArticle)
     res.render('edit-article', {
       editArticle,
       loggedIn: req.session.loggedIn

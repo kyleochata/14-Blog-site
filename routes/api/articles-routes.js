@@ -64,9 +64,7 @@ router.delete('/:id', authorizer, async (req, res) => {
 //create a new responding echo(comment)
 router.post('/comment', authorizer, async (req, res) => {
   try {
-    console.log(req.body)
     const { article_id, comment } = req.body;
-    console.log(comment)
     const newComment = await Comments.create({
       article_id,
       comment,

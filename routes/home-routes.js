@@ -9,9 +9,6 @@ router.get('/', async (req, res) => {
     const articlesData = await Articles.findAll();
     //serialization Sequelize obj to normal obj
     const articles = articlesData.map(article => article.get({ plain: true }));
-    //tester to see pulling data; change to res.render to send to handlebars
-
-    console.log(articles)
     return res.render('homepage', {
       articles,
       loggedIn: req.session.loggedIn
