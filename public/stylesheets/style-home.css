@@ -184,7 +184,8 @@ a,
 .main-right,
 .dashboard-container,
 .post,
-.login-page {
+.login-page,
+.new-article-container {
   contain: strict;
   overflow-y: auto;
 }
