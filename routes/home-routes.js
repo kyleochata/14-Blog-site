@@ -3,7 +3,6 @@ const authorizer = require('../utils/authorized')
 const { User, Articles, Comments } = require('../models');
 
 //GET all article names and date created
-//for website.com/
 router.get('/', async (req, res) => {
   try {
     //sequelize get of all data in Articles table
@@ -39,10 +38,8 @@ router.get("/articles/:id", authorizer, async (req, res) => {
           }],
         }]
     })
-    //change to res.render send to correct handlebar
 
     const post = singleArticleData.dataValues;
-    console.log(post)
     res.render('articles-page', {
       post,
       loggedIn: req.session.loggedIn
@@ -52,8 +49,8 @@ router.get("/articles/:id", authorizer, async (req, res) => {
     return res.status(500).json(err)
   }
 });
-// return res.status(200).json(post)
 
+//send user to the login/signup page
 router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
     return res.redirect('/');

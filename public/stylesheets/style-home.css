@@ -5,6 +5,7 @@
   --action-color: #8b0000;
   --tertiary-color: #f37e21;
   --rgb-accent: 65 95 66;
+  --borderWidth: 3px;
 }
 
 body {
@@ -16,9 +17,16 @@ body {
   width: 100vw;
 }
 
-header {
+header,
+.card-header {
   padding: 10px 10px;
-  border-bottom: solid var(--secondary);
+}
+
+header {
+  border-bottom: double 0.5rem var(--secondary);
+}
+.card-header {
+  border-bottom: solid var(--accent-color);
 }
 
 h2 {
@@ -35,6 +43,7 @@ main {
   height: 83%;
   contain: strict;
 }
+
 footer {
   border-top: solid white;
 }
@@ -42,19 +51,18 @@ footer {
 ul {
   list-style-type: none;
 }
+
 a,
 #logout-btn,
 #save-edit-btn,
 #delete-article-btn,
-#comment-submit-btn {
+#login-btn,
+#signup-btn {
   text-decoration: none;
   color: var(--secondary);
   text-shadow: 0px 0px 0.5rem white;
 }
 
-.header-left {
-  padding-left: 20px;
-}
 .nav-a,
 #logout-btn {
   font-size: 1.5rem;
@@ -175,7 +183,8 @@ a,
 
 .main-right,
 .dashboard-container,
-.post {
+.post,
+.login-page {
   contain: strict;
   overflow-y: auto;
 }
@@ -211,7 +220,9 @@ a,
 .article-card > a > h3:focus {
   text-shadow: 0px 0px 1rem var(--secondary) !important;
 }
-#logout-btn {
+
+#logout-btn,
+#comment-submit-btn {
   background-color: var(--primary);
   border: none;
 }
@@ -229,22 +240,35 @@ a,
 .comment-card {
   border: dashed var(--accent-color);
 }
+
 .dashboard-content,
 .card-body,
 .article-body {
   font-size: 2rem;
 }
+
 .dashboard-a {
   font-size: 2.5rem;
   text-shadow: 0px 0px 0.75rem var(--secondary);
   transition: text-shadow 0.25s;
 }
+
 .dashboard-a:hover {
   text-shadow: 0px 0px 1rem var(--action-color);
 }
 
+.res-echo {
+  padding: 10px 0;
+}
+
 .dashboard-content,
-.dashboard-a {
+.dashboard-a,
+.comment-card,
+.header-left,
+form,
+.comment-container,
+.comment-form,
+#login-form {
   padding-left: 20px;
 }
 
@@ -265,13 +289,16 @@ a,
   height: 75%;
 }
 
+.signup-form-p {
+  font-size: 1rem;
+}
+
 label {
   font-size: 2.5rem;
 }
 
 textarea {
   font-size: 1.5rem;
-  border: solid var(--accent-color);
 }
 
 #article-title-input,
@@ -284,9 +311,9 @@ textarea {
   height: 50%;
   width: 80%;
 }
+
 #save-edit-btn,
-#delete-article-btn,
-#comment-submit-btn {
+#delete-article-btn {
   border: none;
   background-color: var(--primary);
   font-size: 1.5rem;
@@ -294,15 +321,9 @@ textarea {
 }
 
 #save-edit-btn:hover,
-#delete-article-btn:hover,
-#comment-submit-btn:hover {
+#delete-article-btn:hover {
   color: var(--action-color);
   font-weight: bold;
-}
-
-.comment-container,
-.comment-form {
-  padding-left: 20px;
 }
 
 .comment-body {
@@ -310,6 +331,46 @@ textarea {
   justify-content: center;
   flex-direction: column;
   font-size: 1.5rem;
+}
+
+#email-login,
+#password-login,
+#email-input-signup,
+#username-input-signup,
+#password-input-signup {
+  height: 3rem;
+  width: 50vw;
+  font-size: 1.5rem;
+}
+
+input,
+textarea {
+  border: solid var(--accent-color);
+  box-shadow: 10px 5px 5px var(--accent-color);
+}
+
+.form-btn {
+  padding-top: 15px;
+}
+
+#signup-btn,
+#login-btn,
+#comment-submit-btn {
+  font-size: 2rem;
+  text-shadow: 0px 0px 0.75rem var(--accent-color);
+  transition: font-weight 0.5s, text-shadow 0.5s;
+  color: var(--secondary);
+}
+
+#signup-btn:hover,
+#login-btn:hover,
+#comment-submit-btn:hover {
+  font-weight: bold;
+  text-shadow: 0 0 1rem var(--action-color);
+}
+
+.comment-div {
+  margin-top: 15px;
 }
 
 @media (max-width: 733px) {

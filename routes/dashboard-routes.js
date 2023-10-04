@@ -33,11 +33,13 @@ router.get('/', authorizer, async (req, res) => {
   }
 });
 
+//render in the new-article page to create a new echo
 router.get('/new', authorizer, (req, res) => {
   res.render('new-article', {
   })
 })
 
+//controller to edit an existing echo
 router.get('/edit/:id', authorizer, async (req, res) => {
   try {
     const editArticleData = await Articles.findByPk(req.params.id, {
@@ -50,11 +52,12 @@ router.get('/edit/:id', authorizer, async (req, res) => {
           }],
         }]
     })
-    console.log(editArticleData)
+
     if (!editArticleData) {
       res.status(404).json(`Sorry no article with that id found! Please try again`)
     }
-    const editArticle = editArticleData.dataValues
+    const editArticle = editArticleData.get({ plain: true });
+    console.log(editArticle)
     res.render('edit-article', {
       editArticle,
       loggedIn: req.session.loggedIn

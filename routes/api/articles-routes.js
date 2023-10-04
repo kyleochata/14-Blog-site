@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Articles, Comments } = require('../../models');
 const authorizer = require('../../utils/authorized');
 
+//create a new echo(blog post) after user fills out form on dashboard/new
 router.post('/', authorizer, async (req, res) => {
   try {
     const newArticleData = await Articles.create({
@@ -18,6 +19,7 @@ router.post('/', authorizer, async (req, res) => {
   }
 })
 
+//update an existing echo(blog post) after user fills out the forms on dashboard/edit/:id
 router.put('/:id', authorizer, async (req, res) => {
   try {
     const updateArticleData = await Articles.update({
@@ -42,6 +44,7 @@ router.put('/:id', authorizer, async (req, res) => {
   }
 })
 
+//delete an existing echo (delete existing blog post)
 router.delete('/:id', authorizer, async (req, res) => {
   try {
     const deleteArticle = await Articles.destroy({
@@ -58,6 +61,7 @@ router.delete('/:id', authorizer, async (req, res) => {
   }
 })
 
+//create a new responding echo(comment)
 router.post('/comment', authorizer, async (req, res) => {
   try {
     console.log(req.body)
