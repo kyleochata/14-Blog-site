@@ -12,6 +12,20 @@ Future development would consist around refining the CSS outside of the homepage
 
 A link to the deployed site can be found [here](https://hidden-brook-25016-916a523caf29.herokuapp.com/)
 
+Screenshots of deployed application:
+
+Homepage:
+![homepage](./public/images/homepage.png)
+
+Login:
+![login](./public/images/login.png)
+
+Dashboard:
+![dashboard](./public/images/dashboard.png)
+
+Edit-Article:
+![edit-article](./public/images/edit-article.png)
+
 ## Table of Contents
 
 - [Installation](#installation)
