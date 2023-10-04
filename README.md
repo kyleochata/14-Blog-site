@@ -1,4 +1,4 @@
-# [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&repeat=false&width=435&lines=Infinite+Echoes+Blog+Site)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Infinite+Echoes+Blog+Site)](https://git.io/typing-svg)
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue)](https://lbesson.mit-license.org)
 
@@ -9,6 +9,8 @@ Having a place to go to share your thoughts and read what other have said is wha
 A challenge faced in this project was starting from scratch and building the back-end and connecting it to the front-end within limited time (4 days). It being the first full-stack project I have undertaken, it was a challenge to get it all complete in time.
 
 Future development would consist around refining the CSS outside of the homepage to link better to the homepage. Future development would also see converting the usage of handlebars.js to react.js
+
+A link to the deployed site can be found [here](https://hidden-brook-25016-916a523caf29.herokuapp.com/)
 
 ## Table of Contents
 

@@ -293,21 +293,25 @@ form,
   font-size: 1rem;
 }
 
-label {
+label,
+#new-article-title {
   font-size: 2.5rem;
 }
 
-textarea {
+textarea,
+#new-article-content {
   font-size: 1.5rem;
 }
 
 #article-title-input,
-#comment-content {
+#comment-content,
+#new-article-title {
   height: 15%;
   width: 80%;
 }
 
-#article-content-input {
+#article-content-input,
+#new-article-content {
   height: 50%;
   width: 80%;
 }
@@ -355,7 +359,8 @@ textarea {
 
 #signup-btn,
 #login-btn,
-#comment-submit-btn {
+#comment-submit-btn,
+#new-article-btn {
   font-size: 2rem;
   text-shadow: 0px 0px 0.75rem var(--accent-color);
   transition: font-weight 0.5s, text-shadow 0.5s;
@@ -364,7 +369,8 @@ textarea {
 
 #signup-btn:hover,
 #login-btn:hover,
-#comment-submit-btn:hover {
+#comment-submit-btn:hover,
+#new-article-btn:hover {
   font-weight: bold;
   text-shadow: 0 0 1rem var(--action-color);
 }
