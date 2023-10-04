@@ -311,9 +311,13 @@ textarea,
   width: 80%;
 }
 
-#article-content-input,
-#new-article-content {
+#article-content-input {
   height: 50%;
+  width: 80%;
+}
+
+#new-article-content {
+  height: 35%;
   width: 80%;
 }
 
